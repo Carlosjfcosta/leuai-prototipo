@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pt-BR" class="barra-fechada" data-fonte="100" data-espaco="normal" data-tipo="sem-serifa" data-contraste="normal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lê UAI – Biblioteca Digital Inclusiva</title>
+  <meta name="description" content="Protótipo de alta fidelidade da Lê UAI, biblioteca digital de obras em domínio público pensada para pessoas com baixa visão.">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="js/dados.js" defer></script>
+  <script src="js/app.js" defer></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <div id="topo">
+    <section class="barra" aria-labelledby="barra-titulo">
+      <div class="container">
+        <h2 id="barra-titulo" class="visualmente-oculto">Ajustes de leitura</h2>
+        <button type="button" class="barra-alternar" aria-expanded="false" aria-controls="barra-opcoes">
+          <span>Ajustes de leitura <span class="sub">Fonte, espaço, tipo e contraste</span></span>
+          <span class="seta" aria-hidden="true">▾</span>
+        </button>
+        <div class="barra-opcoes" id="barra-opcoes">
+          <div class="grupo" role="group" aria-labelledby="rotulo-fonte">
+            <span class="grupo-rotulo" id="rotulo-fonte">Fonte:</span>
+            <button type="button" class="opcao" data-pref="fonte" data-valor="100" aria-pressed="true">A− 100% padrão</button>
+            <button type="button" class="opcao" data-pref="fonte" data-valor="115" aria-pressed="false">A 115%</button>
+            <button type="button" class="opcao" data-pref="fonte" data-valor="130" aria-pressed="false">A+ 130%</button>
+            <button type="button" class="opcao" data-pref="fonte" data-valor="150" aria-pressed="false">A++ 150%</button>
+          </div>
+          <div class="grupo" role="group" aria-labelledby="rotulo-espaco">
+            <span class="grupo-rotulo" id="rotulo-espaco">Espaço:</span>
+            <button type="button" class="opcao" data-pref="espaco" data-valor="normal" aria-pressed="true">Normal</button>
+            <button type="button" class="opcao" data-pref="espaco" data-valor="ampliado" aria-pressed="false">Ampliado</button>
+          </div>
+          <div class="grupo" role="group" aria-labelledby="rotulo-tipo">
+            <span class="grupo-rotulo" id="rotulo-tipo">Tipo:</span>
+            <button type="button" class="opcao" data-pref="tipo" data-valor="sem-serifa" aria-pressed="true">Sem serifa</button>
+            <button type="button" class="opcao" data-pref="tipo" data-valor="com-serifa" aria-pressed="false">Com serifa</button>
+          </div>
+          <div class="grupo" role="group" aria-labelledby="rotulo-contraste">
+            <span class="grupo-rotulo" id="rotulo-contraste">Contraste:</span>
+            <button type="button" class="opcao" data-pref="contraste" data-valor="normal" aria-pressed="true">Normal</button>
+            <button type="button" class="opcao" data-pref="contraste" data-valor="alto" aria-pressed="false">Alto</button>
+            <button type="button" class="opcao" data-pref="contraste" data-valor="baixo" aria-pressed="false">Baixo</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <header class="cabecalho">
+      <div class="container cabecalho-linha">
+        <a class="marca" href="#/catalogo">
+          <span class="marca-selo" aria-hidden="true">UAI</span>
+          <span class="marca-texto">
+            <span class="marca-nome">Lê UAI</span>
+            <span class="marca-sub">Biblioteca Digital Inclusiva · Obras de Domínio Público</span>
+          </span>
+        </a>
+        <div class="usuario" hidden>
+          <span>Olá, <strong id="nome-usuario">Leitor(a)</strong></span>
+          <button type="button" class="botao-sair" id="sair">Sair</button>
+        </div>
+      </div>
+    </header>
+
+    <nav class="menu" aria-label="Menu principal" hidden>
+      <div class="container">
+        <ul>
+          <li><a href="#/catalogo" data-rota="catalogo"><span aria-hidden="true">📚</span> Catálogo</a></li>
+          <li><a href="#/pesquisar" data-rota="pesquisar"><span aria-hidden="true">🔍</span> Pesquisar</a></li>
+          <li><a href="#/estante" data-rota="estante"><span aria-hidden="true">⭐</span> Minha Estante <span class="contador"><span id="contador-estante">2</span><span class="visualmente-oculto"> obras</span></span></a></li>
+          <li><a href="#/relatar" data-rota="relatar"><span aria-hidden="true">📢</span> Relatar problema</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <main id="conteudo" class="container" tabindex="-1">
+    <noscript>
+      <p>Este protótipo precisa do JavaScript ligado no navegador.</p>
+    </noscript>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p><strong>Lê UAI – Biblioteca Digital Inclusiva</strong> · Projetada para pessoas com baixa visão</p>
+      <p>Protótipo de alta fidelidade interativo · Etapa 3 · Design de Interação · Dados fictícios para teste de usabilidade.</p>
+      <ul class="rodape-links">
+        <li><a href="#/admin">Acesso restrito: Administração do Acervo</a></li>
+        <li><a href="#/relatar">Acessibilidade e sugestões</a></li>
+        <li><button type="button" id="reiniciar">Reiniciar demonstração</button></li>
+      </ul>
+    </div>
+  </footer>
+
+  <div class="fundo-dialogo" id="fundo-dialogo" hidden>
+    <div class="dialogo" role="dialog" aria-modal="true" aria-labelledby="dialogo-titulo" aria-describedby="dialogo-texto">
+      <h2 id="dialogo-titulo">Remover da estante?</h2>
+      <p id="dialogo-texto">Tem certeza que deseja remover esta obra da sua estante de leitura?</p>
+      <div class="botoes">
+        <button type="button" class="botao secundario" id="dialogo-cancelar">Cancelar</button>
+        <button type="button" class="botao perigo" id="dialogo-confirmar">Sim, remover</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="anuncio" class="visualmente-oculto" role="status" aria-live="polite"></div>
+</body>
+</html>
